@@ -2,12 +2,13 @@ Future<String> getWeatherForecast() {
   return Future.delayed(Duration(seconds: 10), () => "Partly Cloudy");
 }
 
-void fetchWeatherForecast() {
+void fetchWeatherForecast() async{
   print("start: fetchWeatherForecast");
-  final forecast = getWeatherForecast();
-  forecast.then(
-    (value) => print("FetchWeatherForecast : $value"),
-  );
+  final forecast = await getWeatherForecast();
+  print('result :: $forecast');
+  // forecast.then(
+  //   (value) => print("FetchWeatherForecast : $value"),
+  // );
   print("end: fetchWeatherForecast");
 }
 
